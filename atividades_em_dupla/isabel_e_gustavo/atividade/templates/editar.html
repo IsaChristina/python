@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="../static/estilo.css">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <title>HBSIS - Editar</title>
+
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/">Cadastrar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/listagem">Listar</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1 class="centro">Editar</h1>
+
+    {%if 'id_pessoal' in request.args.keys()%}
+    <!-- Formulário Funcionário -->
+    <form action="/editar_funcionario" method="POST" class="form-signin">
+        <label for="">Id Pessoal</label><br>
+        <input type="text" name="id_pessoal" id="" value="{{pessoa['Id_pessoal']}}" class="form-control" readonly>
+        <label for="">Id Funcionário</label><br>
+        <input type="text" name="id_funcionario" id="" value="{{pessoa['Id_funcionario']}}" class="form-control" readonly>
+        <label for="id_nome">Nome</label><br>
+        <input type="text" name="nome" id="id_nome" class="form-control" value="{{pessoa['Nome']}}">
+        <label for="id_cpf">Cpf</label><br>
+        <input type="text" name="cpf" id="id_cpf" class="form-control" value="{{pessoa['Cpf']}}">
+        <label for="id_telefone">Telefone</label><br>
+        <input type="text" name="telefone" id="id_telefone" class="form-control" value="{{pessoa['Telefone']}}">
+        <label for="id_cargo">Cargo</label><br>
+        <input type="text" name="cargo" id="id_cargo" class="form-control" value="{{pessoa['Cargo']}}">
+        <label for="id_salario">Salario</label><br>
+        <input type="text" name="salario" id="id_salario" class="form-control" value="{{pessoa['Salario']}}">
+        <br>
+        <button type="submit" class="btn-info btn-large btn" name="alterar">Alterar</button>
+        <button type="submit" class="btn-danger btn-large btn" name="deletar">Deletar</button>
+    </form>
+    {% endif %}
+
+    {%if 'id_linguagem' in request.args.keys()%}
+    <!-- Formulário Linguagem -->
+    <form action="/editar_linguagem" method="POST" class="form-signin">
+        <label for="">Id Linguagem</label><br>
+        <input type="text" name="id_linguagem" id="" class="form-control" value="{{pessoa['Id']}}" readonly>
+        <label for="id_nome">Nome</label><br>
+        <input type="text" name="nome" id="id_nome" class="form-control" value="{{pessoa['Nome']}}">
+        <br>
+        <button type="submit" class="btn-info btn-large btn" name="alterar">Alterar</button>
+        <button type="submit" class="btn-danger btn-large btn" name="deletar">Deletar</button>
+    </form>
+    {% endif %}
+
+    {%if 'id_equipe' in request.args.keys()%}
+    <!-- Formulário de Equipe -->
+    <form action="/editar_equipe" method="POST" class="form-signin">
+        <label for="">Id Equipe</label><br>
+        <input type="text" name="id_equipe" id="" class="form-control" value="{{pessoa['Id_equipe']}}" readonly>
+        <label for="id_nome">Id 1</label><br>
+        <input type="text" name="id1" id="id_nome" class="form-control" value="{{pessoa['Pessoa_1']}}">
+        <label for="id_cpf">Id 2</label><br>
+        <input type="text" name="id2" id="id_cpf" class="form-control" value="{{pessoa['Pessoa_2']}}">
+        <label for="id_cpf">Id 3</label><br>
+        <input type="text" name="id3" id="id_cpf" class="form-control" value="{{pessoa['Pessoa_3']}}">
+        <label for="id_cpf">Id 4</label><br>
+        <input type="text" name="id4" id="id_cpf" class="form-control" value="{{pessoa['Pessoa_4']}}">
+        <br>
+        <button type="submit" class="btn-info btn-large btn" name="alterar">Alterar</button>
+        <button type="submit" class="btn-danger btn-large btn" name="deletar">Deletar</button>
+    </form>
+    {% endif %}
+</body>
+</html>
