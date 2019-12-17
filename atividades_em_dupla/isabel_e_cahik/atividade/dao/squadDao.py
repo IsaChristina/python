@@ -20,6 +20,11 @@ class SquadDao:
                                         passwd = "Isabel2019")
         self.cursor = self.conexao.cursor()
 
+    def inserir(self, comando_sql_insert):
+        self.cursor.execute(comando_sql_insert)
+        self.conexao.commit()
+        # comando SQL INSERT
+
     def listar(self):
         lista_squad = []
         comando_sql_listar = """ SELECT  b.id_banco,

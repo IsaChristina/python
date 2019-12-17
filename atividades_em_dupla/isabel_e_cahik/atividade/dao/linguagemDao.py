@@ -1,8 +1,8 @@
 import MySQLdb
 
-from model.framework import Framework
+from model.linguagem import Linguagem
 
-class FrameworkDao:
+class LinguagemDao:
 
     def __init__(self):
         self.conexao = MySQLdb.connect(host = "mysql.topskills.study",
@@ -12,24 +12,24 @@ class FrameworkDao:
         self.cursor = self.conexao.cursor()
 
     def listar(self):
-        lista_framework = []
+        lista_linguagem = []
 
-        comando_sql_listar = """ SELECT * FROM framework """
+        comando_sql_listar = """ SELECT * FROM linguagem """
         self.cursor.execute(comando_sql_listar)
 
         lista_tupla = self.cursor.fetchall()
 
         for l in lista_tupla:
-            framework = Framework(l[1], l[0])
-            lista_framework.append(framework.__dict__)
-        return lista_framework
+            linguagem = Linguagem(l[1], l[0])
+            lista_linguagem.append(linguagem.__dict__)
+        return lista_linguagem
 
     def buscar_por_id(self, id:int):
-        comando_sql_buscar_id = f""" SELECT * FROM framework WHERE id_framework = {id} """
+        comando_sql_buscar_id = f""" SELECT * FROM linguagem WHERE id_linguagem = {id} """
         
         self.cursor.execute(comando_sql_buscar_id)
         tupla = self.cursor.fetchone()
         
-        framework = Framework(tupla[1], tupla[0])
+        linguagem = Linguagem(tupla[1], tupla[0])
 
-        return framework.__dict__
+        return linguagem.__dict__

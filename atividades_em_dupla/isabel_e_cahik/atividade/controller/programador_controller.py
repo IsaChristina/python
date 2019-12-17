@@ -7,5 +7,7 @@ class ProgramadorController(Resource):
     def __init__(self):
         self.dao = ProgramadorDao()
 
-    def get(self):
+    def get(self, id:int):
+        if id:
+            return self.dao.buscar_por_id(id)
         return self.dao.listar()

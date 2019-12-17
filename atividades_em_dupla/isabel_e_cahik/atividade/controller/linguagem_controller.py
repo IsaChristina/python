@@ -1,11 +1,11 @@
 from flask_restful import Resource
 
-from dao.frameworkDao import FrameworkDao
+from dao.linguagemDao import LinguagemDao
 
-class FrameworkController(Resource):
+class LinguagemController(Resource):
 
     def __init__(self):
-        self.dao = FrameworkDao()
+        self.dao = LinguagemDao()
 
     def get(self, id = None):
         if id:

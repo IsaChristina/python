@@ -23,3 +23,13 @@ class BancoDao:
             banco = Banco(l[1], l[0])
             lista_banco.append(banco.__dict__)
         return lista_banco
+
+    def buscar_por_id(self, id:int):
+        comando_sql_buscar_id = f""" SELECT * FROM banco WHERE id_banco = {id} """
+        
+        self.cursor.execute(comando_sql_buscar_id)
+        tupla = self.cursor.fetchone()
+        
+        banco = Banco(tupla[1], tupla[0])
+
+        return banco.__dict__
